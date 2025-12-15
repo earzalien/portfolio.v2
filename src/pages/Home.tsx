@@ -5,7 +5,7 @@ import { useTheme } from "../context/theme-context";
 import { ScrollProgress } from "../components/ScrollProgress";
 import Divider from "../components/Divider";
 import ProjectSlider from "../components/ProjectSlider";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const LazyBannerQuote = lazy(() => import("../components/BannerQuote"));
 const LazySiteBarRight = lazy(() => import("../components/SideBarRight"));
