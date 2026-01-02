@@ -1,22 +1,94 @@
 import React from "react";
 import { useLanguage } from "../context/language-context";
-// import { Link } from "react-router-dom";
 
-const Imprint = () => {
+const Imprint: React.FC = () => {
   const { language } = useLanguage();
+  const isFR = language === "FR";
+  const isES = language === "ES";
 
   return (
-    <React.Fragment>
-      {language === "FR" ? (
-        <article className="flex flex-col gap-6 max-w-[70vw]">
-          <h1>Nous sommes ravis de vous annoncer le lancement de notre nouvelle fonctionnalité qui vous permet de personnaliser votre expérience utilisateur comme jamais auparavant ! Plongez dans un univers d'options personnalisées, conçues spécialement pour vous. De plus, restez informé(e) des nouveautés et des offres exclusives. Merci de faire partie de notre communauté !</h1>
-        </article>
-      ) : (
-        <article className="flex flex-col gap-6 max-w-[70vw]">
-          <h1>We're thrilled to announce the launch of our new feature, allowing you to customize your user experience like never before! Dive into a world of personalized options tailored just for you. Plus, stay tuned for exciting updates and exclusive offers coming your way. Thank you for being part of our community!</h1>
-        </article>
-      )}
-    </React.Fragment>
+    <section className="max-w-3xl mx-auto px-6 py-16 space-y-6">
+      <h1 className="text-3xl font-bold">
+        {isFR
+          ? "Mentions légales"
+          : isES
+          ? "Aviso legal"
+          : "Imprint"}
+      </h1>
+
+      <h2 className="text-2xl font-semibold">
+        {isFR
+          ? "Éditeur du site"
+          : isES
+          ? "Editor del sitio"
+          : "Site owner"}
+      </h2>
+      <p>
+        Kévin Ressegaire<br />
+        Développeur full‑stack (portfolio personnel)<br />
+        E‑mail&nbsp;: kevin.ressegaire@gmail.com
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        {isFR
+          ? "Hébergement"
+          : isES
+          ? "Alojamiento"
+          : "Hosting"}
+      </h2>
+      <p>
+        {isFR
+          ? "Ce site est hébergé par Vercel Inc."
+          : isES
+          ? "Este sitio está alojado por Vercel Inc."
+          : "This site is hosted by Vercel Inc."}
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        {isFR
+          ? "Propriété intellectuelle"
+          : isES
+          ? "Propiedad intelectual"
+          : "Intellectual property"}
+      </h2>
+      <p>
+        {isFR
+          ? "Sauf mention contraire, les contenus (textes, visuels, code) présentés sur ce portfolio sont la propriété de Kévin Ressegaire et ne peuvent être réutilisés qu’avec autorisation."
+          : isES
+          ? "Salvo indicación en contrario, los contenidos (textos, visuales, código) presentados en este portfolio son propiedad de Kévin Ressegaire y no pueden reutilizarse sin autorización previa."
+          : "Unless stated otherwise, the content (texts, visuals, code) displayed on this portfolio is the property of Kévin Ressegaire and may not be reused without prior permission."}
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        {isFR
+          ? "Responsabilité"
+          : isES
+          ? "Responsabilidad"
+          : "Liability"}
+      </h2>
+      <p>
+        {isFR
+          ? "Ce portfolio a pour objectif de présenter mon profil et mes projets. Malgré le soin apporté aux informations publiées, des erreurs ou omissions peuvent subsister. Vous pouvez me contacter pour signaler tout problème."
+          : isES
+          ? "Este portfolio tiene como objetivo presentar mi perfil y mis proyectos. Aunque se presta atención a la exactitud de la información, pueden existir errores u omisiones. Puedes contactarme para informar de cualquier problema."
+          : "This portfolio aims to present my profile and projects. While care is taken to ensure accuracy, errors or omissions may occur. You can contact me to report any issue."}
+      </p>
+
+      <h2 className="text-2xl font-semibold">
+        {isFR
+          ? "Contact"
+          : isES
+          ? "Contacto"
+          : "Contact"}
+      </h2>
+      <p>
+        {isFR
+          ? "Pour toute question concernant le site, vous pouvez m’écrire directement à l’adresse suivante : kevin.ressegaire@gmail.com."
+          : isES
+          ? "Para cualquier consulta relacionada con el sitio, puedes escribirme directamente a: kevin.ressegaire@gmail.com."
+          : "For any question related to this site, you can contact me at: kevin.ressegaire@gmail.com."}
+      </p>
+    </section>
   );
 };
 
