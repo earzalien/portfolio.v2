@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const Contact: React.FC = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
@@ -330,33 +331,66 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
               }`}
             />
             <div className="privacy-checkbox flex gap-16">
-              <label
-                className="block w-2 h-2 cursor-pointer"
-                htmlFor="checkbox-label"
-              >
-                <input
-                  type="checkbox"
-                  required
-                  name="checkbox-label"
-                  id="checkbox-label"
-                />
-                <span className="checkbox"></span>
-              </label>
-              <p>
-                {language === "FR"
-                  ? contactData.privacyOptIn.checkbox.fr
-                  : language === "ES"
-                  ? contactData.privacyOptIn.checkbox.es
-                  : contactData.privacyOptIn.checkbox.en}
-              </p>
-            </div>
-            <p>
-              {language === "FR"
-                ? contactData.privacyOptIn.description.fr
-                : language === "ES"
-                ? contactData.privacyOptIn.description.es
-                : contactData.privacyOptIn.description.en}
-            </p>
+  <label
+    className="block w-2 h-2 cursor-pointer"
+    htmlFor="checkbox-label"
+  >
+    <input
+      type="checkbox"
+      required
+      name="checkbox-label"
+      id="checkbox-label"
+    />
+    <span className="checkbox"></span>
+  </label>
+  <p>
+    {language === "FR" && (
+      <>
+        J’accepte que mes informations soient utilisées pour répondre à ma
+        demande et je confirme avoir lu la{" "}
+        <Link
+          to="/privacy"
+          className="underline text-[--orange]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          politique de confidentialité
+        </Link>
+        .
+      </>
+    )}
+    {language === "EN" && (
+      <>
+        I agree that my information will be used to answer my request and I
+        confirm that I have read the{" "}
+        <Link
+          to="/privacy"
+          className="underline text-[--orange]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          privacy policy
+        </Link>
+        .
+      </>
+    )}
+    {language === "ES" && (
+      <>
+        Acepto que mi información se utilice para responder a mi solicitud y
+        confirmo que he leído la{" "}
+        <Link
+          to="/privacy"
+          className="underline text-[--orange]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          política de privacidad
+        </Link>
+        .
+      </>
+    )}
+  </p>
+</div>
             <Button
               value={
                 language === "FR"

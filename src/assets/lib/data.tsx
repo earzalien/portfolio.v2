@@ -321,11 +321,11 @@ export const skillsDataCMS = [
 
 
 export const navLinks = [
-  { fr: "Accueil", en: "Home", es: "Inicio", hash: "#home", icon: GoHome },
-  { fr: "Compétences", en: "Skills", es: "Habilidades", hash: "#skills", icon: GoStack },
-  { fr: "Projets", en: "Projects", es: "Proyectos", hash: "#projects", icon: GoProject },
-  { fr: "À propos de moi", en: "About me", es: "Sobre mí", hash: "#about-me", icon: GoPerson },
-  { fr: "Contact", en: "Contact", es: "Contacto", hash: "#contact", icon: GoMail },
+  { fr: "Accueil", en: "Home", es: "Inicio", hash: "/#home", icon: GoHome },
+  { fr: "Compétences", en: "Skills", es: "Habilidades", hash: "/#skills", icon: GoStack },
+  { fr: "Projets", en: "Projects", es: "Proyectos", hash: "/#projects", icon: GoProject },
+  { fr: "À propos de moi", en: "About me", es: "Sobre mí", hash: "/#about-me", icon: GoPerson },
+  { fr: "Contact", en: "Contact", es: "Contacto", hash: "/#contact", icon: GoMail },
 ] as const;
 
 export const FooterLinks = [

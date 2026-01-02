@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import ActiveSectionContextProvider from "./context/active-section-context";
 import ThemeContextProvider from "./context/theme-context";
 import LanguageContextProvider from "./context/language-context";
+import PrivacyPage from "./pages/PrivacyPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/imprint" element={<Home />}></Route>
-                <Route path="/privacy" element={<Home />}></Route>
+                <Route path="/privacy" element={<PrivacyPage />} />
               </Routes>
             </ActiveSectionContextProvider>
           </LanguageContextProvider>
