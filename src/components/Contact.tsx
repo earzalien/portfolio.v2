@@ -18,8 +18,14 @@ const Contact: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
   const [cursor, setCursor] = useState<string>("");
   const [lastUpdatedField, setLastUpdatedField] = useState<string | null>(null);
+  const [cursorBlink, setCursorBlink] = useState<boolean>(true);
+
+  // statut d’envoi pour désactiver le bouton si tu veux
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
   const { ref } = useSectionInView("Contact");
   const { language } = useLanguage();
   const { theme } = useTheme();
@@ -34,6 +40,7 @@ const Contact: React.FC = () => {
 
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    setStatus("loading");
 
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
@@ -45,7 +52,6 @@ const Contact: React.FC = () => {
       message: String(formData.get("message") || ""),
     };
 
-    // Validation côté front
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!data.name || data.name.trim().length < 2) {
@@ -56,6 +62,7 @@ const Contact: React.FC = () => {
           ? "Por favor introduce un nombre válido."
           : "Please enter a valid name."
       );
+      setStatus("error");
       return;
     }
 
@@ -67,6 +74,7 @@ const Contact: React.FC = () => {
           ? "Por favor introduce un correo electrónico válido."
           : "Please enter a valid email address."
       );
+      setStatus("error");
       return;
     }
 
@@ -78,6 +86,7 @@ const Contact: React.FC = () => {
           ? "Tu mensaje es demasiado corto."
           : "Your message is too short."
       );
+      setStatus("error");
       return;
     }
 
@@ -94,6 +103,14 @@ const Contact: React.FC = () => {
       } else {
         toast.success(toastMessages.successEmailSent.en);
       }
+
+      // ✅ RESET des champs après succès
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+      setLastUpdatedField(null);
+      setStatus("success");
     } catch (error) {
       console.log(error);
 
@@ -104,6 +121,7 @@ const Contact: React.FC = () => {
       } else {
         toast.error(toastMessages.failedEmailSent.en);
       }
+      setStatus("error");
     }
   };
 
@@ -154,9 +172,8 @@ const Contact: React.FC = () => {
     }
 
     setLastUpdatedField(name);
+    if (status !== "idle") setStatus("idle");
   };
-
-  const [cursorBlink, setCursorBlink] = useState<boolean>(true);
 
   useEffect(() => {
     const blinkInterval = setInterval(() => {
@@ -169,38 +186,67 @@ const Contact: React.FC = () => {
   }, []);
 
   const shortEmail = email.length > 40 ? email.slice(0, 37) + "..." : email;
+const headerComment =
+  language === "FR"
+    ? `// 🌈 Poussière d’étoiles en cours:\n// Création d’un email cosmique 🌌`
+    : language === "ES"
+    ? `// 🌈 Esparciendo polvo de estrellas:\n// Creando un correo cósmico 🌌`
+    : `// 🌈 Spreading stardust:\n// Crafting a cosmic email 🌌`;
+ const messageBody =
+  language === "FR"
+    ? `Salut, explorateur·rice ! 👋
 
-  const codeSnippet = `
-import  { useState } from "react";
+Ton message vient de traverser le réseau et d’atterrir dans ma boîte mail.
 
+"${wordWrap(message, 40, " ")}"
 
-// 🌈 Spreading Stardust: 
-// Crafting Cosmic Email 🌌
+Je te réponds dès que possible.
 
+À bientôt,
+${name}`
+    : language === "ES"
+    ? `¡Hola, explorador(a)! 👋
+
+Tu mensaje acaba de viajar por la red y ha aterrizado en mi buzón.
+
+"${wordWrap(message, 40, " ")}"
+
+Te responderé lo antes posible.
+
+Hasta pronto,
+${name}`
+    : `Hello, explorer! 👋
+
+Your message just jumped through the network and landed in my inbox.
+
+"${wordWrap(message, 40, " ")}"
+
+I’ll get back to you as soon as possible.
+
+Talk soon,
+${name}`;
+
+const codeSnippet = `
+import { useState } from "react";
+
+${headerComment}
 
 const [sender, setSender] = "${name}${
-    lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
-  }🚀";
+  lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
+}🚀";
 const [recipient, setRecipient] = "${shortEmail}${
-    lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
-  }📧";
-const [subject, setSubject] = 
+  lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
+}📧";
+const [subject, setSubject] =
 "${subject}${
-    lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
-  }✨";
-const [message, setMessage] = 
-\`Hello, intrepid traveler! 👋
+  lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
+}✨";
+const [message, setMessage] =
+\`${messageBody}${
+  lastUpdatedField === "message" ? (cursorBlink ? "|" : " ") : ""
+}\`;
+`;
 
-Across the cosmos, a message for you:
-
-"${wordWrap(message, 40, " ")}${
-    lastUpdatedField === "message" ? (cursorBlink ? "|" : " ") : ""
-  }"
-
-Wishing you stardust dreams,
-
-${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
-\``;
 
   return (
     <React.Fragment>
@@ -239,6 +285,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
             </h2>
           </motion.div>
         </div>
+
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
           <div className="w-1/2  bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all  quote-outer-container text-left max-lg:hidden cursor-progress">
             <Highlight
@@ -262,6 +309,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
               )}
             </Highlight>
           </div>
+
           <form
             className="flex flex-col gap-6 justify-center items-center  px-32 w-1/2 max-lg:w-full max-lg:p-10"
             onSubmit={notifySentForm}
@@ -298,6 +346,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
                   setLastUpdatedField(input.name);
                 }}
                 onChange={handleInputChange}
+                disabled={status === "loading"}
                 className={`${
                   theme === "dark"
                     ? "bg-[--blackblue] dark-mode-shadow "
@@ -305,6 +354,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
                 }`}
               />
             ))}
+
             <textarea
               rows={contactData.textarea.rows}
               placeholder={
@@ -315,6 +365,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
                   : contactData.textarea.placeholder.en
               }
               name={contactData.textarea.name}
+              value={message}
               onFocus={() => {
                 handleInputFocus(contactData.textarea.name);
                 setLastUpdatedField(contactData.textarea.name);
@@ -324,73 +375,76 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
                 setLastUpdatedField(contactData.textarea.name);
               }}
               onChange={handleInputChange}
+              disabled={status === "loading"}
               className={`${
                 theme === "dark"
                   ? "bg-[--blackblue] dark-mode-shadow"
                   : "bg-[--icewhite] dark-shadow"
               }`}
             />
+
             <div className="privacy-checkbox flex gap-16">
-  <label
-    className="block w-2 h-2 cursor-pointer"
-    htmlFor="checkbox-label"
-  >
-    <input
-      type="checkbox"
-      required
-      name="checkbox-label"
-      id="checkbox-label"
-    />
-    <span className="checkbox"></span>
-  </label>
-  <p>
-    {language === "FR" && (
-      <>
-        J’accepte que mes informations soient utilisées pour répondre à ma
-        demande et je confirme avoir lu la{" "}
-        <Link
-          to="/privacy"
-          className="underline text-[--orange]"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          politique de confidentialité
-        </Link>
-        .
-      </>
-    )}
-    {language === "EN" && (
-      <>
-        I agree that my information will be used to answer my request and I
-        confirm that I have read the{" "}
-        <Link
-          to="/privacy"
-          className="underline text-[--orange]"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          privacy policy
-        </Link>
-        .
-      </>
-    )}
-    {language === "ES" && (
-      <>
-        Acepto que mi información se utilice para responder a mi solicitud y
-        confirmo que he leído la{" "}
-        <Link
-          to="/privacy"
-          className="underline text-[--orange]"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          política de privacidad
-        </Link>
-        .
-      </>
-    )}
-  </p>
-</div>
+              <label
+                className="block w-2 h-2 cursor-pointer"
+                htmlFor="checkbox-label"
+              >
+                <input
+                  type="checkbox"
+                  required
+                  name="checkbox-label"
+                  id="checkbox-label"
+                />
+                <span className="checkbox"></span>
+              </label>
+              <p>
+                {language === "FR" && (
+                  <>
+                    J’accepte que mes informations soient utilisées pour
+                    répondre à ma demande et je confirme avoir lu la{" "}
+                    <Link
+                      to="/privacy"
+                      className="underline text-[--orange]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      politique de confidentialité
+                    </Link>
+                    .
+                  </>
+                )}
+                {language === "EN" && (
+                  <>
+                    I agree that my information will be used to answer my
+                    request and I confirm that I have read the{" "}
+                    <Link
+                      to="/privacy"
+                      className="underline text-[--orange]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      privacy policy
+                    </Link>
+                    .
+                  </>
+                )}
+                {language === "ES" && (
+                  <>
+                    Acepto que mi información se utilice para responder a mi
+                    solicitud y confirmo que he leído la{" "}
+                    <Link
+                      to="/privacy"
+                      className="underline text-[--orange]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      política de privacidad
+                    </Link>
+                    .
+                  </>
+                )}
+              </p>
+            </div>
+
             <Button
               value={
                 language === "FR"
@@ -405,6 +459,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
               type="submit"
               elementType="input"
             />
+
             <ToastContainer
               className="w-max text-3xl block p-3 max-lg:w-full "
               position="bottom-center"

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="border-t border-slate-200 mt-16 py-6 px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <p>© {new Date().getFullYear()} Kévin Ressegaire</p>
+      <p>© {new Date().getFullYear()} Kevin Ressegaire</p>
       <div className="flex gap-4">
         {FooterLinks.map((item, index) => {
           const label =

@@ -13,6 +13,7 @@ const LanguageSwitch: React.FC = () => {
         onClick={() => setLanguage("FR")}
         className={`btn-lang ${language === "FR" ? "btn-lang--active" : ""}`}
         aria-label="Français"
+        type="button"
       >
         <img src={flagFR} alt="Français" />
       </button>
@@ -21,6 +22,7 @@ const LanguageSwitch: React.FC = () => {
         onClick={() => setLanguage("EN")}
         className={`btn-lang ${language === "EN" ? "btn-lang--active" : ""}`}
         aria-label="English"
+        type="button"
       >
         <img src={flagEN} alt="English" />
       </button>
@@ -29,6 +31,7 @@ const LanguageSwitch: React.FC = () => {
         onClick={() => setLanguage("ES")}
         className={`btn-lang ${language === "ES" ? "btn-lang--active" : ""}`}
         aria-label="Español"
+        type="button"
       >
         <img src={flagES} alt="Español" />
       </button>
