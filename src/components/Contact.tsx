@@ -10,6 +10,7 @@ import { useTheme } from "../context/theme-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import ServiceStatus from "./ServiceStatus";
 
 const Contact: React.FC = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
@@ -23,8 +24,9 @@ const Contact: React.FC = () => {
   const [lastUpdatedField, setLastUpdatedField] = useState<string | null>(null);
   const [cursorBlink, setCursorBlink] = useState<boolean>(true);
 
-  // statut d’envoi pour désactiver le bouton si tu veux
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
 
   const { ref } = useSectionInView("Contact");
   const { language } = useLanguage();
@@ -104,7 +106,6 @@ const Contact: React.FC = () => {
         toast.success(toastMessages.successEmailSent.en);
       }
 
-      // ✅ RESET des champs après succès
       setName("");
       setEmail("");
       setSubject("");
@@ -186,15 +187,17 @@ const Contact: React.FC = () => {
   }, []);
 
   const shortEmail = email.length > 40 ? email.slice(0, 37) + "..." : email;
-const headerComment =
-  language === "FR"
-    ? `// 🌈 Poussière d’étoiles en cours:\n// Création d’un email cosmique 🌌`
-    : language === "ES"
-    ? `// 🌈 Esparciendo polvo de estrellas:\n// Creando un correo cósmico 🌌`
-    : `// 🌈 Spreading stardust:\n// Crafting a cosmic email 🌌`;
- const messageBody =
-  language === "FR"
-    ? `Salut, explorateur·rice ! 👋
+
+  const headerComment =
+    language === "FR"
+      ? `// 🌈 Poussière d’étoiles en cours:\n// Création d’un email cosmique 🌌`
+      : language === "ES"
+      ? `// 🌈 Esparciendo polvo de estrellas:\n// Creando un correo cósmico 🌌`
+      : `// 🌈 Spreading stardust:\n// Crafting a cosmic email 🌌`;
+
+  const messageBody =
+    language === "FR"
+      ? `Salut, explorateur·rice ! 👋
 
 Ton message vient de traverser le réseau et d’atterrir dans ma boîte mail.
 
@@ -204,8 +207,8 @@ Je te réponds dès que possible.
 
 À bientôt,
 ${name}`
-    : language === "ES"
-    ? `¡Hola, explorador(a)! 👋
+      : language === "ES"
+      ? `¡Hola, explorador(a)! 👋
 
 Tu mensaje acaba de viajar por la red y ha aterrizado en mi buzón.
 
@@ -215,7 +218,7 @@ Te responderé lo antes posible.
 
 Hasta pronto,
 ${name}`
-    : `Hello, explorer! 👋
+      : `Hello, explorer! 👋
 
 Your message just jumped through the network and landed in my inbox.
 
@@ -226,27 +229,53 @@ I’ll get back to you as soon as possible.
 Talk soon,
 ${name}`;
 
-const codeSnippet = `
+  const codeSnippet = `
 import { useState } from "react";
 
 ${headerComment}
 
 const [sender, setSender] = "${name}${
-  lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
-}🚀";
+    lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
+  }🚀";
 const [recipient, setRecipient] = "${shortEmail}${
-  lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
-}📧";
+    lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
+  }📧";
 const [subject, setSubject] =
 "${subject}${
-  lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
-}✨";
+    lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
+  }✨";
 const [message, setMessage] =
 \`${messageBody}${
-  lastUpdatedField === "message" ? (cursorBlink ? "|" : " ") : ""
-}\`;
+    lastUpdatedField === "message" ? (cursorBlink ? "|" : " ") : ""
+  }\`;
 `;
 
+  const labels = {
+    name:
+      language === "FR"
+        ? "Nom"
+        : language === "ES"
+        ? "Nombre"
+        : "Name",
+    email:
+      language === "FR"
+        ? "Adresse email"
+        : language === "ES"
+        ? "Correo electrónico"
+        : "Email address",
+    subject:
+      language === "FR"
+        ? "Sujet"
+        : language === "ES"
+        ? "Asunto"
+        : "Subject",
+    message:
+      language === "FR"
+        ? "Message"
+        : language === "ES"
+        ? "Mensaje"
+        : "Message",
+  };
 
   return (
     <React.Fragment>
@@ -287,7 +316,8 @@ const [message, setMessage] =
         </div>
 
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
-          <div className="w-1/2  bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all  quote-outer-container text-left max-lg:hidden cursor-progress">
+          {/* Colonne gauche : snippet + status */}
+          <div className="w-1/2 bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-12 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all quote-outer-container text-left max-lg:hidden cursor-progress">
             <Highlight
               code={codeSnippet}
               language="tsx"
@@ -308,80 +338,172 @@ const [message, setMessage] =
                 </pre>
               )}
             </Highlight>
+
+            <div className="mt-4 text-2xl">
+              <ServiceStatus />
+            </div>
           </div>
 
+          {/* Colonne droite : formulaire */}
           <form
-            className="flex flex-col gap-6 justify-center items-center  px-32 w-1/2 max-lg:w-full max-lg:p-10"
+            className="flex flex-col gap-6 justify-center items-center px-32 w-1/2 max-lg:w-full max-lg:p-10"
             onSubmit={notifySentForm}
             autoComplete="off"
           >
-            {contactData.inputfields.map((input, index) => (
+            {/* Nom */}
+            <div className="w-full flex flex-col gap-2">
+              <label
+                htmlFor="contact-name"
+                className="block text-sm font-medium text-[--transparent]"
+              >
+                {labels.name}
+              </label>
               <input
-                key={index}
-                type={input.type}
+                id="contact-name"
+                type="text"
+                name="name"
                 placeholder={
                   language === "FR"
-                    ? input.placeholder.fr
+                    ? contactData.inputfields[0].placeholder.fr
                     : language === "ES"
-                    ? input.placeholder.es
-                    : input.placeholder.en
+                    ? contactData.inputfields[0].placeholder.es
+                    : contactData.inputfields[0].placeholder.en
                 }
-                name={input.name}
-                value={
-                  input.name === "name"
-                    ? name
-                    : input.name === "email"
-                    ? email
-                    : input.name === "subject"
-                    ? subject
-                    : message
-                }
+                value={name}
                 required
                 onFocus={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
+                  handleInputFocus("name");
+                  setLastUpdatedField("name");
                 }}
                 onMouseEnter={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
+                  handleInputFocus("name");
+                  setLastUpdatedField("name");
                 }}
                 onChange={handleInputChange}
                 disabled={status === "loading"}
-                className={`${
+                className={`w-full ${
                   theme === "dark"
                     ? "bg-[--blackblue] dark-mode-shadow "
                     : "bg-[--icewhite] dark-shadow "
                 }`}
               />
-            ))}
+            </div>
 
-            <textarea
-              rows={contactData.textarea.rows}
-              placeholder={
-                language === "FR"
-                  ? contactData.textarea.placeholder.fr
-                  : language === "ES"
-                  ? contactData.textarea.placeholder.es
-                  : contactData.textarea.placeholder.en
-              }
-              name={contactData.textarea.name}
-              value={message}
-              onFocus={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
-              onMouseEnter={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
-              onChange={handleInputChange}
-              disabled={status === "loading"}
-              className={`${
-                theme === "dark"
-                  ? "bg-[--blackblue] dark-mode-shadow"
-                  : "bg-[--icewhite] dark-shadow"
-              }`}
-            />
+            {/* Email */}
+            <div className="w-full flex flex-col gap-2">
+              <label
+                htmlFor="contact-email"
+                className="block text-sm font-medium text-[--transparent]"
+              >
+                {labels.email}
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                placeholder={
+                  language === "FR"
+                    ? contactData.inputfields[1].placeholder.fr
+                    : language === "ES"
+                    ? contactData.inputfields[1].placeholder.es
+                    : contactData.inputfields[1].placeholder.en
+                }
+                value={email}
+                required
+                onFocus={() => {
+                  handleInputFocus("email");
+                  setLastUpdatedField("email");
+                }}
+                onMouseEnter={() => {
+                  handleInputFocus("email");
+                  setLastUpdatedField("email");
+                }}
+                onChange={handleInputChange}
+                disabled={status === "loading"}
+                className={`w-full ${
+                  theme === "dark"
+                    ? "bg-[--blackblue] dark-mode-shadow "
+                    : "bg-[--icewhite] dark-shadow "
+                }`}
+              />
+            </div>
+
+            {/* Sujet */}
+            <div className="w-full flex flex-col gap-2">
+              <label
+                htmlFor="contact-subject"
+                className="block text-sm font-medium text-[--transparent]"
+              >
+                {labels.subject}
+              </label>
+              <input
+                id="contact-subject"
+                type="text"
+                name="subject"
+                placeholder={
+                  language === "FR"
+                    ? contactData.inputfields[2].placeholder.fr
+                    : language === "ES"
+                    ? contactData.inputfields[2].placeholder.es
+                    : contactData.inputfields[2].placeholder.en
+                }
+                value={subject}
+                required
+                onFocus={() => {
+                  handleInputFocus("subject");
+                  setLastUpdatedField("subject");
+                }}
+                onMouseEnter={() => {
+                  handleInputFocus("subject");
+                  setLastUpdatedField("subject");
+                }}
+                onChange={handleInputChange}
+                disabled={status === "loading"}
+                className={`w-full ${
+                  theme === "dark"
+                    ? "bg-[--blackblue] dark-mode-shadow "
+                    : "bg-[--icewhite] dark-shadow "
+                }`}
+              />
+            </div>
+
+            {/* Message */}
+            <div className="w-full flex flex-col gap-2">
+              <label
+                htmlFor="contact-message"
+                className="block text-sm font-medium text-[--transparent]"
+              >
+                {labels.message}
+              </label>
+              <textarea
+                id="contact-message"
+                rows={contactData.textarea.rows}
+                placeholder={
+                  language === "FR"
+                    ? contactData.textarea.placeholder.fr
+                    : language === "ES"
+                    ? contactData.textarea.placeholder.es
+                    : contactData.textarea.placeholder.en
+                }
+                name={contactData.textarea.name}
+                value={message}
+                onFocus={() => {
+                  handleInputFocus(contactData.textarea.name);
+                  setLastUpdatedField(contactData.textarea.name);
+                }}
+                onMouseEnter={() => {
+                  handleInputFocus(contactData.textarea.name);
+                  setLastUpdatedField(contactData.textarea.name);
+                }}
+                onChange={handleInputChange}
+                disabled={status === "loading"}
+                className={`w-full ${
+                  theme === "dark"
+                    ? "bg-[--blackblue] dark-mode-shadow"
+                    : "bg-[--icewhite] dark-shadow"
+                }`}
+              />
+            </div>
 
             <div className="privacy-checkbox flex gap-16">
               <label

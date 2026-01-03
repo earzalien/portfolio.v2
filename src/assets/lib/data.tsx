@@ -336,10 +336,10 @@ export const FooterLinks = [
   { fr: "Politique de confidentialité", en: "Privacy", es: "Política de privacidad", hash: "#privacy", data: <Privacy /> },
 ] as const;
 
-
-export const sideBarRightMail = {
-  link: "mailto:kevin.ressegaire@gmail.com",
-  text: "kevin.ressegaire@gmail.com",
+export const sideBarRightText = {
+  fr: "Disponible pour de nouveaux projets",
+  en: "Open to new projects",
+  es: "Disponible para nuevos proyectos",
 } as const;
 
 export const sideBarLeftSocials = [
@@ -354,11 +354,12 @@ export const sideBarLeftSocials = [
     altimgname: "github",
   },
   {
-    link: "mailto:kevin.ressegaire@gmail.com",
+    link: `#contact`,
     icon: FiMail,
     altimgname: "mail",
   },
 ] as const;
+
 
 export const quotesData = [
   {

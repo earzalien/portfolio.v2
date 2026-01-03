@@ -19,30 +19,36 @@ const SiteBarLeft: React.FC = () => {
         <div className="w-[0.25rem] h-[40vh] bg-[--lightblue]"></div>
       </div>
       <div className="flex flex-col gap-4 mt-4">
-        {sideBarLeftSocials.map((social: SocialLink, index: number) => (
-          <Link
-            to={social.link}
-            className="block mb-2 hover:scale-110"
-            key={index}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-current={
-              social.altimgname === "true"
-                ? social.altimgname
-                : social.altimgname + " button"
-            }
-          >
-            {typeof social.icon === "function" ? (
-              <social.icon className={`stroke-orange`} />
-            ) : (
-              <img
-                src={social.icon}
-                alt={social.altimgname}
-                style={{ stroke: social.iconcolor }}
-              />
-            )}
-          </Link>
-        ))}
+        {sideBarLeftSocials.map((social: SocialLink, index: number) => {
+  const isExternal = social.link.startsWith("http");
+
+  return (
+    <Link
+      to={social.link}
+      className="block mb-2 hover:scale-110"
+      key={index}
+      {...(isExternal
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
+      aria-current={
+        social.altimgname === "true"
+          ? social.altimgname
+          : social.altimgname + " button"
+      }
+    >
+      {typeof social.icon === "function" ? (
+        <social.icon className="stroke-orange" />
+      ) : (
+        <img
+          src={social.icon}
+          alt={social.altimgname}
+          style={{ stroke: social.iconcolor }}
+        />
+      )}
+    </Link>
+  );
+})}
+
       </div>
     </div>
   );
