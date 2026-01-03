@@ -184,7 +184,7 @@ export const liveTickerData = {
 
 export const skillsDataWeb = [
   {
-    skillsTitle: "WebDevelopment",
+    skillsTitle: "Frontend",
     skills: [
       {
         title: "HTML",
@@ -375,99 +375,112 @@ export const aboutMeData = {
   title_FR: "À propos de moi",
   title_EN: "About me",
   title_ES: "Sobre mí",
-  description_FR: "Quelques lignes de code à propos de moi",
-  description_EN: "A few code snippets about me",
-  description_ES: "Algunas líneas de código sobre mí",
+
+  description_FR: "Une approche du développement guidée par les contraintes, les choix et leurs conséquences",
+  description_EN: "A development approach driven by constraints, trade-offs and consequences",
+  description_ES: "Un enfoque del desarrollo guiado por las limitaciones, las decisiones y sus consecuencias",
+
   paragraphs_FR: [
     {
-      title: "À propos de moi",
+      title: "Positionnement",
       description:
-        "Développeur web full-stack formé à la Wild Code School, passionné par la création d’interfaces modernes et d’APIs robustes, avec un fort intérêt pour l’écosystème JavaScript.",
+        "Développeur web full-stack avec une approche pragmatique et structurée. Je m’intéresse moins aux stacks à la mode qu’à la cohérence globale d’une application : lisibilité du code, dette technique maîtrisée et décisions adaptées au contexte réel du projet.",
       icon: aboutmeicon,
     },
     {
-      title: "Compétences",
+      title: "Architecture & arbitrages",
       description:
-        "Je travaille principalement avec JavaScript/TypeScript, React, Node.js, PostgreSQL, MongoDB et Git, en appliquant les bonnes pratiques vues en bootcamp (revues de code, tests, travail en équipe).",
+        "Je conçois des architectures simples avant d’être extensibles. J’évite le sur-engineering, limite les abstractions prématurées et privilégie des solutions compréhensibles par une équipe plutôt que des patterns complexes difficiles à maintenir.",
       icon: hobbiesicon,
     },
     {
-      title: "Parcours",
+      title: "Stack & usage réel",
       description:
-        "Au bootcamp Wild Code School, je participe à des projets full-stack collaboratifs comme des applications de recommandation de films, des quiz interactifs et des services REST avec intégration d’APIs externes.",
+        "J’utilise principalement JavaScript et TypeScript avec React et Node.js, en accordant une attention particulière à la séparation des responsabilités, à la gestion des erreurs et à la modélisation des données. La technologie reste un moyen, jamais une fin.",
       icon: medalicon,
     },
     {
-      title: "Projets & apprentissages",
+      title: "Expérience projet",
       description:
-        "Je construis régulièrement de nouveaux projets pour expérimenter des libs, améliorer mon architecture front/back et documenter mon raisonnement technique (choix de stack, gestion des erreurs, performances).",
+        "Formé à la Wild Code School, j’ai travaillé sur des projets full-stack collaboratifs confrontés à des contraintes concrètes : délais, dette technique, intégration d’APIs externes et compromis entre qualité et livraison. Ces expériences ont structuré ma manière de raisonner.",
       icon: blogsicon,
     },
     {
-      title: "Veille & curiosité",
+      title: "Vision à long terme",
       description:
-        "Je fais une veille active sur les bonnes pratiques front-end et back-end, les nouveautés autour de React, Node.js et TypeScript, ainsi que les outils modernes de développement et de déploiement.",
+        "Je privilégie des bases de code durables, faciles à faire évoluer et à reprendre. Mon objectif n’est pas d’optimiser trop tôt, mais de laisser des systèmes clairs, testables et compréhensibles plusieurs mois après leur mise en production.",
       icon: youtubeicon,
     },
   ],
+
   paragraphs_EN: [
     {
-      title: "About Me",
+      title: "Positioning",
       description:
-        "Full-stack web developer trained at Wild Code School, passionate about building modern UIs and robust APIs, with a strong focus on the JavaScript ecosystem."
-    },
-    {
-      title: "Skills",
-      description:
-        "I mainly work with JavaScript/TypeScript, React, Node.js, PostgreSQL, MongoDB and Git, applying best practices from the bootcamp such as code reviews, testing and teamwork.",
-      icon: hobbiesicon,
-    },
-    {
-      title: "Background",
-      description:
-        "During my Wild Code School bootcamp, I contribute to collaborative full-stack projects like movie recommendation apps, interactive quizzes and REST services integrated with external APIs.",
-      icon: medalicon,
-    },
-    {
-      title: "Projects & Learning",
-      description:
-        "I regularly build new projects to try out libraries, refine my front-end and back-end architecture and clearly document my technical decisions, from stack choices to error handling.",
-      icon: blogsicon,
-    },
-    {
-      title: "Tech Watch & Curiosity",
-      description:
-        "I keep an active eye on modern front-end and back-end practices, new tools around React, Node.js and TypeScript, and up-to-date deployment workflows.",
-      icon: youtubeicon,
-    },
-  ], paragraphs_ES: [ 
-    {
-      title: "Sobre mí",
-      description: "Desarrollador web full-stack, formación en Wild Code School, apasionado por crear interfaces modernas y APIs robustas, con gran interés en el ecosistema JavaScript.",
+        "Full-stack web developer with a pragmatic and structured approach. I care less about trendy stacks than about overall application coherence: readable code, controlled technical debt and decisions adapted to real project constraints.",
       icon: aboutmeicon,
     },
     {
-      title: "Habilidades",
-      description: "Trabajo principalmente con JavaScript/TypeScript, React, Node.js, PostgreSQL, MongoDB y Git, aplicando las mejores prácticas del bootcamp (revisiones de código, tests, trabajo en equipo).",
+      title: "Architecture & Trade-offs",
+      description:
+        "I design architectures to be simple before being scalable. I avoid over-engineering, limit premature abstractions and favor solutions that remain understandable for teams rather than complex patterns that are hard to maintain.",
       icon: hobbiesicon,
     },
     {
-      title: "Trayectoria",
-      description: "En el bootcamp de Wild Code School, participo en proyectos full-stack colaborativos como aplicaciones de recomendación de películas, quizzes interactivos y servicios REST con integración de APIs externas.",
+      title: "Stack & Real Usage",
+      description:
+        "I mainly work with JavaScript and TypeScript using React and Node.js, with strong attention to separation of concerns, error handling and data modeling. Technology is always a tool, never the goal.",
       icon: medalicon,
     },
     {
-      title: "Proyectos & Aprendizaje",
-      description: "Construyo regularmente nuevos proyectos para experimentar con librerías, mejorar mi arquitectura front/back y documentar mi razonamiento técnico (elección de stack, gestión de errores, rendimiento).",
+      title: "Project Experience",
+      description:
+        "Trained at Wild Code School, I worked on collaborative full-stack projects facing real constraints: deadlines, technical debt, external API integrations and trade-offs between quality and delivery.",
       icon: blogsicon,
     },
     {
-      title: "Vigilancia & Curiosidad",
-      description: "Hago una vigilancia activa de las mejores prácticas front-end y back-end, novedades alrededor de React, Node.js y TypeScript, así como herramientas modernas de desarrollo y despliegue.",
+      title: "Long-term Vision",
+      description:
+        "I focus on building codebases that are durable, evolvable and easy to hand over. My goal is not premature optimization, but leaving systems that remain clear, testable and understandable over time.",
+      icon: youtubeicon,
+    },
+  ],
+
+  paragraphs_ES: [
+    {
+      title: "Posicionamiento",
+      description:
+        "Desarrollador web full-stack con un enfoque pragmático y estructurado. Me interesan menos las tecnologías de moda que la coherencia global de una aplicación: código legible, deuda técnica controlada y decisiones adaptadas al contexto real.",
+      icon: aboutmeicon,
+    },
+    {
+      title: "Arquitectura & decisiones",
+      description:
+        "Diseño arquitecturas simples antes de hacerlas escalables. Evito el sobre-ingeniería, limito las abstracciones prematuras y priorizo soluciones comprensibles para el equipo.",
+      icon: hobbiesicon,
+    },
+    {
+      title: "Stack & uso real",
+      description:
+        "Trabajo principalmente con JavaScript y TypeScript usando React y Node.js, prestando especial atención a la separación de responsabilidades, la gestión de errores y el modelado de datos.",
+      icon: medalicon,
+    },
+    {
+      title: "Experiencia en proyectos",
+      description:
+        "Formado en Wild Code School, participé en proyectos full-stack colaborativos enfrentados a restricciones reales: plazos, deuda técnica, integración de APIs externas y compromisos entre calidad y entrega.",
+      icon: blogsicon,
+    },
+    {
+      title: "Visión a largo plazo",
+      description:
+        "Busco construir bases de código duraderas, fáciles de mantener y evolucionar. Mi objetivo no es optimizar demasiado pronto, sino dejar sistemas claros y reutilizables en el tiempo.",
       icon: youtubeicon,
     },
   ],
 };
+
+
 
 
 export const contactData = {
