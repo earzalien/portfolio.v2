@@ -24,9 +24,10 @@ import aboutmeicon from "../../assets/icons/aboutmeicon.png"
 import hobbiesicon from "../../assets/icons/hobbiesicon.png"
 import blogsicon from "../../assets/icons/blogsicon.png"
 import hemangicon2 from "../../assets/img/kevin-ressegaire.png"
-import zemprofiles from "../../assets/icons/zemprofiles.png"
+import cinemoodpreview from "../../assets/icons/cinemood.png"
 import youtubeicon from "../../assets/icons/youtubeicon.png"
-import zempostsicon from "../../assets/icons/zemposts.png"
+import portfoliopreview from "../../assets/icons/portfolio.png"
+import railpreview from "../../assets/icons/rmc04.png"
 import phpicom from "../../assets/icons/php.png";
 import postgresqlicon from "../../assets/icons/postgre.png";
 import mysqlicon from "../../assets/icons/mysql.png";
@@ -76,18 +77,18 @@ export const projectsData = [
   {
     title: "CineMood",
     description:
-      "Application web de recommandations de films centrée sur l’expérience utilisateur et la structuration des données. Le projet met l’accent sur la gestion des états, la séparation front/back et l’intégration d’APIs externes dans une architecture maintenable.",
+      "Application web de recommandations de films réalisée dans le cadre de ma formation. Le projet met l’accent sur l’expérience utilisateur, la gestion des états, la séparation front/back et l’intégration d’APIs externes dans une architecture maintenable.",
     description_EN:
-      "Movie recommendation web application focused on user experience and data structuring. The project emphasizes state management, front/back separation and external API integration within a maintainable architecture.",
+      "Movie recommendation web application built as a training project. The project emphasizes user experience, state management, front/back separation and external API integration within a maintainable architecture.",
     description_ES:
-      "Aplicación web de recomendación de películas centrada en la experiencia de usuario y la estructuración de datos. El proyecto pone el foco en la gestión de estados, la separación front/back y la integración de APIs externas.", 
+      "Aplicación web de recomendación de películas desarrollada como proyecto de formación. El proyecto pone el foco en la experiencia de usuario, la gestión de estados, la separación front/back y la integración de APIs externas.",
     technologies: [
       { name: "JavaScript", icon: javascripticon },
       { name: "TypeScript", icon: typescripticon },
       { name: "NodeJS", icon: nodejsicon },
       { name: "ReactJS", icon: reacticon },
     ],
-    image: zempostsicon,
+    image: cinemoodpreview,
     deploymenturl: "https://cinemood-ebon.vercel.app/",
     githuburl: "https://github.com/earzalien/cinemood",
     githubicon: FiGithub,
@@ -101,21 +102,22 @@ export const projectsData = [
   },
 
   {
-    title: "Outlander",
+    title: "Portfolio",
     description:
-      "Site web multilingue développé en équipe, avec un accent sur la structuration du contenu, la cohérence entre les langues et l’organisation du code front-end. Le projet a permis de travailler la collaboration, la lisibilité du code et la gestion des versions.",
+      "Site portfolio personnel présentant mon parcours, mes compétences et mes projets. Développé avec une approche responsive et multilingue, il met en avant la qualité du code, l’accessibilité et l’optimisation des performances.",
     description_EN:
-      "Team-built multilingual website focusing on content structure, language consistency and front-end code organization. The project emphasized collaboration, code readability and version control practices.",
+      "Personal portfolio website showcasing my background, skills and projects. Built with a responsive and multilingual approach, it highlights code quality, accessibility and performance optimization.",
     description_ES:
-      "Sitio web multilingüe desarrollado en equipo, centrado en la estructuración del contenido, la coherencia entre idiomas y la organización del código front-end. El proyecto reforzó la colaboración y las buenas prácticas de versionado.", 
+      "Sitio web de portafolio personal que presenta mi trayectoria, mis competencias y mis proyectos. Desarrollado con un enfoque responsive y multilingüe, destaca la calidad del código, la accesibilidad y el rendimiento.",
     technologies: [
-      { name: "JavaScript", icon: javascripticon },
+      { name: "TypeScript", icon: typescripticon },
+      { name: "ReactJS", icon: reacticon },
       { name: "HTML", icon: htmlicon },
       { name: "CSS", icon: cssicon },
     ],
-    image: zemprofiles,
-    deploymenturl: "https://earzalien.github.io/sassenach/",
-    githuburl: "https://github.com/earzalien/sassenach",
+    image: portfoliopreview,
+    deploymenturl: "https://portfolio-ressegaire-kevin.vercel.app/",
+    githuburl: "https://github.com/earzalien/portfolio-v2",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -125,56 +127,32 @@ export const projectsData = [
       projectcolor: "#FFD5BD",
     },
   },
-/*
-    {
-      title: "ZemDocs",
-      description: 
-        "Ihr Leitfaden zum Meistern von Zem-Projekten",
-      description_EN:
-        "Your Guide to Mastering Zem Projects",
-      technologies: [
-        { name: "Astro", icon: astroicon},
-        { name: "Javascript", icon: javascripticon},
-        { name: "Typescript", icon: typescripticon},
-        { name: "ReactJS", icon: reacticon},
-        { name: "NodeJS", icon: nodejsicon},
-      ],
-      image: zemdocs,
-      deploymenturl: "https://zemdocs.vercel.app",
-      githuburl: "https://github.com/Zemerik/ZemDocs",
-      githubicon: FiGithub,
-      deploymenticon: FiLink,
-      colors: {
-        main: "main-btn",
-        second: "secondary-btn",
-        icon: "white",
-        projectcolor: "#E3964A",
-      },
-    },
+
   {
-    title: "ZemShowcase",
+    title: "RMC04",
     description:
-      "Vitrine und vernetzen Sie sich mit Entwicklern",
+      "Application web développée pour le club Rail Model Club 04 dans un contexte professionnel. Le projet répond à un besoin client réel, avec prise de brief, définition des fonctionnalités, développement itératif et mise en production.",
     description_EN:
-      "Showcase & Connect with Developers",
-      technologies: [
-        { name: "Html", icon: htmlicon },
-        { name: "CSS", icon: cssicon },
-        { name: "JavaScript", icon: javascripticon },
-        { name: "ReactJS", icon: reacticon},
-      ],
-      image: zemshowcase,
-      deploymenturl: "https://zemshowcase.vercel.app",
-      githuburl: "https://github.com/Zemerik/ZemShowcase",
-      githubicon: FiGithub,
-      deploymenticon: FiLink,
-      colors: {
-        main: "main-btn",
-        second: "secondary-btn",
-        icon: "white",
-        projectcolor: "#E3964A",
-      },
-    },*/
+      "Web application developed for the Rail Model Club 04 in a professional context. The project addresses a real client need, including brief collection, feature definition, iterative development and production deployment.",
+    description_ES:
+      "Aplicación web desarrollada para el Rail Model Club 04 en un contexto profesional. El proyecto responde a una necesidad real del cliente, con toma de requisitos, definición de funcionalidades, desarrollo iterativo y despliegue en producción.",
+    technologies: [
+      { name: "TypeScript", icon: typescripticon },
+      { name: "ReactJS", icon: reacticon },
+      { name: "NodeJS", icon: nodejsicon },
+    ],
+    image: railpreview, // ou un visuel spécifique RMC04 si tu en as un
+    deploymenturl: "https://rail-model-club-haute-provence.vercel.app/",
+    githuburl: "https://github.com/earzalien/rmc04", // adapte si le repo a un autre nom
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#9ECF8C",
+    },
+  },
 ] as const;
 
 export const liveTickerData = {
