@@ -141,9 +141,9 @@ export const projectsData = [
       { name: "ReactJS", icon: reacticon },
       { name: "NodeJS", icon: nodejsicon },
     ],
-    image: railpreview, // ou un visuel spécifique RMC04 si tu en as un
+    image: railpreview, 
     deploymenturl: "https://rail-model-club-haute-provence.vercel.app/",
-    githuburl: "https://github.com/earzalien/rmc04", // adapte si le repo a un autre nom
+    githuburl: "https://github.com/earzalien/train-manosque",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -250,19 +250,19 @@ export const skillsDataDesign = [
       {
         title: "PHP",
         hash: "#PHP",
-        icon: phpicom, // pense à importer ton icône PHP
-        color: "#777BB3", // bleu PHP [web:97]
+        icon: phpicom, 
+        color: "#777BB3",
       },{
         title: "PostgreSQL",
         hash: "#PostgreSQL",
-        icon: postgresqlicon, // icône PostgreSQL à ajouter dans tes imports
-        color: "#336791", // bleu PostgreSQL [web:104]
+        icon: postgresqlicon, 
+        color: "#336791",
       },
       {
         title: "MySQL",
         hash: "#MySQL",
-        icon: mysqlicon, // icône MySQL à ajouter dans tes imports
-        color: "#00758F", // bleu MySQL [web:102][web:108]
+        icon: mysqlicon,
+        color: "#00758F",
       },
             {
         title: "Node.js",
