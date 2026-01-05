@@ -19,13 +19,13 @@ import Imprint from "../../components/Imprint";
 import Privacy from "../../components/Privacy";
 import notionapiicon from "../../assets/icons/notionapiicon.jpg"
 import slackapiicon from "../../assets/icons/slackapiicon.png"
-import medalicon from "../../assets/icons/medalicon.png"
-import aboutmeicon from "../../assets/icons/aboutmeicon.png"
-import hobbiesicon from "../../assets/icons/hobbiesicon.png"
-import blogsicon from "../../assets/icons/blogsicon.png"
+import stackicon from "../../assets/icons/stack.png"
+import aboutmeicon from "../../assets/icons/aboutme.png"
+import archiicon from "../../assets/icons/archi.png"
+import gantticon from "../../assets/icons/gantt.png"
 import hemangicon2 from "../../assets/img/kevin-ressegaire.png"
 import cinemoodpreview from "../../assets/icons/cinemood.png"
-import youtubeicon from "../../assets/icons/youtubeicon.png"
+import objectificon from "../../assets/icons/objectif.png"
 import portfoliopreview from "../../assets/icons/portfolio.png"
 import railpreview from "../../assets/icons/rmc04.png"
 import phpicom from "../../assets/icons/php.png";
@@ -373,25 +373,25 @@ export const aboutMeData = {
       title: "Architecture & arbitrages",
       description:
         "Je conçois des architectures simples avant d’être extensibles. J’évite le sur-engineering, limite les abstractions prématurées et privilégie des solutions compréhensibles par une équipe plutôt que des patterns complexes difficiles à maintenir.",
-      icon: hobbiesicon,
+      icon: archiicon,
     },
     {
       title: "Stack & usage réel",
       description:
         "J’utilise principalement JavaScript et TypeScript avec React et Node.js, en accordant une attention particulière à la séparation des responsabilités, à la gestion des erreurs et à la modélisation des données. La technologie reste un moyen, jamais une fin.",
-      icon: medalicon,
+      icon: stackicon,
     },
     {
       title: "Expérience projet",
       description:
         "Formé à la Wild Code School, j’ai travaillé sur des projets full-stack collaboratifs confrontés à des contraintes concrètes : délais, dette technique, intégration d’APIs externes et compromis entre qualité et livraison. Ces expériences ont structuré ma manière de raisonner.",
-      icon: blogsicon,
+      icon: gantticon,
     },
     {
       title: "Vision à long terme",
       description:
         "Je privilégie des bases de code durables, faciles à faire évoluer et à reprendre. Mon objectif n’est pas d’optimiser trop tôt, mais de laisser des systèmes clairs, testables et compréhensibles plusieurs mois après leur mise en production.",
-      icon: youtubeicon,
+      icon: objectificon,
     },
   ],
 
@@ -406,25 +406,25 @@ export const aboutMeData = {
       title: "Architecture & Trade-offs",
       description:
         "I design architectures to be simple before being scalable. I avoid over-engineering, limit premature abstractions and favor solutions that remain understandable for teams rather than complex patterns that are hard to maintain.",
-      icon: hobbiesicon,
+      icon: archiicon,
     },
     {
       title: "Stack & Real Usage",
       description:
         "I mainly work with JavaScript and TypeScript using React and Node.js, with strong attention to separation of concerns, error handling and data modeling. Technology is always a tool, never the goal.",
-      icon: medalicon,
+      icon: stackicon,
     },
     {
       title: "Project Experience",
       description:
         "Trained at Wild Code School, I worked on collaborative full-stack projects facing real constraints: deadlines, technical debt, external API integrations and trade-offs between quality and delivery.",
-      icon: blogsicon,
+      icon: gantticon,
     },
     {
       title: "Long-term Vision",
       description:
         "I focus on building codebases that are durable, evolvable and easy to hand over. My goal is not premature optimization, but leaving systems that remain clear, testable and understandable over time.",
-      icon: youtubeicon,
+      icon: objectificon,
     },
   ],
 
@@ -439,25 +439,25 @@ export const aboutMeData = {
       title: "Arquitectura & decisiones",
       description:
         "Diseño arquitecturas simples antes de hacerlas escalables. Evito el sobre-ingeniería, limito las abstracciones prematuras y priorizo soluciones comprensibles para el equipo.",
-      icon: hobbiesicon,
+      icon: archiicon,
     },
     {
       title: "Stack & uso real",
       description:
         "Trabajo principalmente con JavaScript y TypeScript usando React y Node.js, prestando especial atención a la separación de responsabilidades, la gestión de errores y el modelado de datos.",
-      icon: medalicon,
+      icon: stackicon,
     },
     {
       title: "Experiencia en proyectos",
       description:
         "Formado en Wild Code School, participé en proyectos full-stack colaborativos enfrentados a restricciones reales: plazos, deuda técnica, integración de APIs externas y compromisos entre calidad y entrega.",
-      icon: blogsicon,
+      icon: gantticon,
     },
     {
       title: "Visión a largo plazo",
       description:
         "Busco construir bases de código duraderas, fáciles de mantener y evolucionar. Mi objetivo no es optimizar demasiado pronto, sino dejar sistemas claros y reutilizables en el tiempo.",
-      icon: youtubeicon,
+      icon: objectificon,
     },
   ],
 };

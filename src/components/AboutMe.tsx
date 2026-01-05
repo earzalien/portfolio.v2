@@ -33,7 +33,6 @@ const AboutMe: React.FC = () => {
     }
   };
 
-  // Sélection des paragraphes selon la langue
   const paragraphs =
     language === "FR"
       ? aboutMeData.paragraphs_FR
@@ -41,7 +40,6 @@ const AboutMe: React.FC = () => {
       ? aboutMeData.paragraphs_ES
       : aboutMeData.paragraphs_EN;
 
-  // Titre selon la langue
   const aboutTitle =
     language === "FR"
       ? aboutMeData.title_FR ?? aboutMeData.title_FR
@@ -49,7 +47,6 @@ const AboutMe: React.FC = () => {
       ? aboutMeData.title_ES
       : aboutMeData.title_EN;
 
-  // Description selon la langue
   const aboutDescription =
     language === "FR"
       ? aboutMeData.description_FR ?? aboutMeData.description_FR

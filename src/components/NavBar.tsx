@@ -105,7 +105,6 @@ const NavBar: React.FC = () => {
           }`}
         >
           {navLinks.map((link, index) => {
-            // Texte selon la langue (FR / ES / EN)
             const label =
               language === "FR"
                 ? link.fr

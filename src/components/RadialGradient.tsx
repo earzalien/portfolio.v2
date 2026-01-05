@@ -48,7 +48,6 @@ const RadialGradient: React.FC<RadialGradientProps> = ({
   return (
     <React.Fragment>
       <div
-        // rotate-180 for mirrored effect
         className={`radial-gradient-styling absolute ${position} left-0 h-full w-full -z-[1]   ${opacity} ${scale} ${overflow}`}
         style={radialGradientStyle}
       ></div>

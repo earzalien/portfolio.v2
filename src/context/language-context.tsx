@@ -1,4 +1,3 @@
-// context/language-context.tsx
 import { useEffect, useState, createContext, useContext } from "react";
 
 type Language = "EN" | "FR" | "ES";
@@ -26,19 +25,18 @@ export default function LanguageContextProvider({
     document.documentElement.classList.remove("EN", "FR", "ES");
     document.documentElement.classList.add(lang);
 
-    // Mettre à jour l'URL sans recharger
     const url = new URL(window.location.href);
     if (lang === "FR") {
       url.searchParams.delete("lang");
     } else {
-      url.searchParams.set("lang", lang.toLowerCase()); // en, es
+      url.searchParams.set("lang", lang.toLowerCase());
     }
     window.history.replaceState({}, "", url);
   };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const rawLang = params.get("lang"); // ex: "fr", "en", "es"
+    const rawLang = params.get("lang");
 
     if (rawLang) {
       const normalized = rawLang.toUpperCase() as Language;

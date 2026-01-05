@@ -64,7 +64,6 @@ const Button: React.FC<ButtonProps> = ({
     </>
   );
 
-  // Si lien externe (http/https), utiliser <a>, sinon <Link>
   if (link && /^https?:\/\//.test(link)) {
     return (
       <a

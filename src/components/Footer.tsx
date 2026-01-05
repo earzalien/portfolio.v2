@@ -1,4 +1,3 @@
-// Footer.tsx
 import React from "react";
 import { useLanguage } from "../context/language-context";
 import { FooterLinks } from "../assets/lib/data";
@@ -19,7 +18,6 @@ const Footer: React.FC = () => {
               ? item.es
               : item.en;
 
-          // On dirige vers les vraies routes, pas vers des ancres
           const path =
             item.hash === "#imprint"
               ? "/imprint"

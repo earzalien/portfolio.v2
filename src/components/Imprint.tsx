@@ -17,9 +17,9 @@ const Imprint: React.FC = () => {
         {isFR ? "Éditeur du site" : isES ? "Editor del sitio" : "Site owner"}
       </h2>
       <p>
-        Kévin Ressegaire
+        Kevin Ressegaire
         <br />
-        Développeur full‑stack (portfolio personnel)
+        Développeur full-stack (portfolio personnel)
         <br />
         {isFR
           ? "Pour me contacter, merci d’utiliser le formulaire de contact du site."
@@ -48,10 +48,10 @@ const Imprint: React.FC = () => {
       </h2>
       <p>
         {isFR
-          ? "Sauf mention contraire, les contenus (textes, visuels, code) présentés sur ce portfolio sont la propriété de Kévin Ressegaire et ne peuvent être réutilisés qu’avec autorisation."
+          ? "Sauf mention contraire, les contenus (textes, visuels, code) présentés sur ce portfolio sont la propriété de Kevin Ressegaire et ne peuvent être réutilisés qu’avec autorisation."
           : isES
-          ? "Salvo indicación en contrario, los contenidos (textos, visuales, código) presentados en este portfolio son propiedad de Kévin Ressegaire y no pueden reutilizarse sin autorización previa."
-          : "Unless stated otherwise, the content (texts, visuals, code) displayed on this portfolio is the property of Kévin Ressegaire and may not be reused without prior permission."}
+          ? "Salvo indicación en contrario, los contenidos (textos, visuales, código) presentados en este portfolio son propiedad de Kevin Ressegaire y no pueden reutilizarse sin autorización previa."
+          : "Unless stated otherwise, the content (texts, visuals, code) displayed on this portfolio is the property of Kevin Ressegaire and may not be reused without prior permission."}
       </p>
 
       <h2 className="text-2xl font-semibold">
