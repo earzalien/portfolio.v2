@@ -19,7 +19,6 @@ import Imprint from "../../components/Imprint";
 import Privacy from "../../components/Privacy";
 import notionapiicon from "../../assets/icons/notionapiicon.jpg"
 import slackapiicon from "../../assets/icons/slackapiicon.png"
-import stackicon from "../../assets/icons/stack.png"
 import aboutmeicon from "../../assets/icons/aboutme.png"
 import archiicon from "../../assets/icons/archi.png"
 import gantticon from "../../assets/icons/gantt.png"
@@ -31,6 +30,7 @@ import railpreview from "../../assets/icons/rmc04.png"
 import phpicom from "../../assets/icons/php.png";
 import postgresqlicon from "../../assets/icons/postgre.png";
 import mysqlicon from "../../assets/icons/mysql.png";
+import careerIcon from "../../assets/icons/parcours-de-carriere.png";
 
 export const headerIntroData = {
   title: {
@@ -363,103 +363,104 @@ export const aboutMeData = {
   description_ES: "Un enfoque del desarrollo guiado por las limitaciones, las decisiones y sus consecuencias",
 
   paragraphs_FR: [
-    {
-      title: "Positionnement",
-      description:
-        "Développeur web full-stack avec une approche pragmatique et structurée. Je m’intéresse moins aux stacks à la mode qu’à la cohérence globale d’une application : lisibilité du code, dette technique maîtrisée et décisions adaptées au contexte réel du projet.",
-      icon: aboutmeicon,
-    },
-    {
-      title: "Architecture & arbitrages",
-      description:
-        "Je conçois des architectures simples avant d’être extensibles. J’évite le sur-engineering, limite les abstractions prématurées et privilégie des solutions compréhensibles par une équipe plutôt que des patterns complexes difficiles à maintenir.",
-      icon: archiicon,
-    },
-    {
-      title: "Stack & usage réel",
-      description:
-        "J’utilise principalement JavaScript et TypeScript avec React et Node.js, en accordant une attention particulière à la séparation des responsabilités, à la gestion des erreurs et à la modélisation des données. La technologie reste un moyen, jamais une fin.",
-      icon: stackicon,
-    },
-    {
-      title: "Expérience projet",
-      description:
-        "Formé à la Wild Code School, j’ai travaillé sur des projets full-stack collaboratifs confrontés à des contraintes concrètes : délais, dette technique, intégration d’APIs externes et compromis entre qualité et livraison. Ces expériences ont structuré ma manière de raisonner.",
-      icon: gantticon,
-    },
-    {
-      title: "Vision à long terme",
-      description:
-        "Je privilégie des bases de code durables, faciles à faire évoluer et à reprendre. Mon objectif n’est pas d’optimiser trop tôt, mais de laisser des systèmes clairs, testables et compréhensibles plusieurs mois après leur mise en production.",
-      icon: objectificon,
-    },
-  ],
+  {
+    title: "Responsabilité terrain & gestion de situations critiques",
+    description:
+      "Pendant près de vingt ans comme chef de réception dans l’hôtellerie haut de gamme, j’ai occupé une position centrale dans des environnements à forte pression. J’étais responsable de la résolution des incidents critiques, qu’ils soient techniques, humains ou organisationnels. Cette expérience m’a forgé des réflexes solides : analyse rapide, priorisation claire et décisions efficaces sous contrainte.",
+    icon: careerIcon,
+  },
+  {
+    title: "Transfert de compétences vers le développement",
+    description:
+      "Le développement web s’est imposé comme une continuité naturelle de ce rôle. Concevoir une application revient à structurer un système, anticiper les points de rupture et garantir sa fiabilité dans le temps. C’est ce que j’ai toujours fait, désormais avec du code plutôt qu’avec des procédures.",
+    icon: aboutmeicon,
+  },
+  {
+    title: "Posture d’équipe et influence technique",
+    description:
+      "En formation à la Wild Code School, j’ai naturellement pris un rôle de soutien technique au sein du groupe. Je suis régulièrement sollicité pour clarifier un raisonnement, diagnostiquer un bug ou proposer une approche plus lisible. Cette posture reflète une capacité à prendre du recul et à fluidifier le travail collectif.",
+    icon: gantticon,
+  },
+  {
+    title: "Approche d’architecture et arbitrages",
+    description:
+      "Je conçois des solutions simples avant de chercher à les rendre extensibles. J’évite le sur‑engineering, limite les abstractions prématurées et privilégie des choix techniques alignés avec les contraintes réelles du projet et le niveau de l’équipe.",
+    icon: archiicon,
+  },
+  {
+    title: "Projection professionnelle",
+    description:
+      "Je recherche aujourd’hui une opportunité — poste junior, alternance ou stage — au sein d’une équipe où je pourrai continuer à progresser techniquement tout en assumant rapidement des responsabilités transverses. Mon objectif est de m’inscrire dans des projets durables et de gagner en impact au fil du temps.",
+    icon: objectificon,
+  },
+],
 
-  paragraphs_EN: [
-    {
-      title: "Positioning",
-      description:
-        "Full-stack web developer with a pragmatic and structured approach. I care less about trendy stacks than about overall application coherence: readable code, controlled technical debt and decisions adapted to real project constraints.",
-      icon: aboutmeicon,
-    },
-    {
-      title: "Architecture & Trade-offs",
-      description:
-        "I design architectures to be simple before being scalable. I avoid over-engineering, limit premature abstractions and favor solutions that remain understandable for teams rather than complex patterns that are hard to maintain.",
-      icon: archiicon,
-    },
-    {
-      title: "Stack & Real Usage",
-      description:
-        "I mainly work with JavaScript and TypeScript using React and Node.js, with strong attention to separation of concerns, error handling and data modeling. Technology is always a tool, never the goal.",
-      icon: stackicon,
-    },
-    {
-      title: "Project Experience",
-      description:
-        "Trained at Wild Code School, I worked on collaborative full-stack projects facing real constraints: deadlines, technical debt, external API integrations and trade-offs between quality and delivery.",
-      icon: gantticon,
-    },
-    {
-      title: "Long-term Vision",
-      description:
-        "I focus on building codebases that are durable, evolvable and easy to hand over. My goal is not premature optimization, but leaving systems that remain clear, testable and understandable over time.",
-      icon: objectificon,
-    },
-  ],
+ paragraphs_EN: [
+  {
+    title: "On-the-ground responsibility & critical incident management",
+    description:
+      "For nearly twenty years as a front office manager in high-end hospitality, I held a central position in high-pressure environments. I was responsible for resolving critical incidents, whether technical, human or organizational. This experience gave me strong reflexes: fast analysis, clear prioritization and effective decision-making under constraints.",
+    icon: careerIcon,
+  },
+  {
+    title: "Transferring skills into development",
+    description:
+      "Web development came as a natural extension of that role. Designing an application means structuring a system, anticipating breaking points and ensuring long-term reliability. It is essentially what I have always done, now with code instead of procedures.",
+    icon: aboutmeicon,
+  },
+  {
+    title: "Team mindset and technical influence",
+    description:
+      "During my training at Wild Code School, I naturally took on a technical support role within the group. I am often asked to clarify reasoning, diagnose bugs or suggest more readable approaches. This reflects my ability to take a step back and keep the team’s work flowing smoothly.",
+    icon: gantticon,
+  },
+  {
+    title: "Architecture mindset and trade-offs",
+    description:
+      "I design solutions to be simple first, then extensible when needed. I avoid over-engineering, limit premature abstractions and favor technical choices that match real project constraints and the team’s actual level.",
+    icon: archiicon,
+  },
+  {
+    title: "Professional outlook",
+    description:
+      "I am currently looking for an opportunity — junior position, apprenticeship or internship — in a team where I can keep growing technically while quickly taking on cross-functional responsibilities. My goal is to contribute to long-term projects and increase my impact over time.",
+    icon: objectificon,
+  },
+],
+
 
   paragraphs_ES: [
-    {
-      title: "Posicionamiento",
-      description:
-        "Desarrollador web full-stack con un enfoque pragmático y estructurado. Me interesan menos las tecnologías de moda que la coherencia global de una aplicación: código legible, deuda técnica controlada y decisiones adaptadas al contexto real.",
-      icon: aboutmeicon,
-    },
-    {
-      title: "Arquitectura & decisiones",
-      description:
-        "Diseño arquitecturas simples antes de hacerlas escalables. Evito el sobre-ingeniería, limito las abstracciones prematuras y priorizo soluciones comprensibles para el equipo.",
-      icon: archiicon,
-    },
-    {
-      title: "Stack & uso real",
-      description:
-        "Trabajo principalmente con JavaScript y TypeScript usando React y Node.js, prestando especial atención a la separación de responsabilidades, la gestión de errores y el modelado de datos.",
-      icon: stackicon,
-    },
-    {
-      title: "Experiencia en proyectos",
-      description:
-        "Formado en Wild Code School, participé en proyectos full-stack colaborativos enfrentados a restricciones reales: plazos, deuda técnica, integración de APIs externas y compromisos entre calidad y entrega.",
-      icon: gantticon,
-    },
-    {
-      title: "Visión a largo plazo",
-      description:
-        "Busco construir bases de código duraderas, fáciles de mantener y evolucionar. Mi objetivo no es optimizar demasiado pronto, sino dejar sistemas claros y reutilizables en el tiempo.",
-      icon: objectificon,
-    },
-  ],
+  {
+    title: "Responsabilidad en el terreno y gestión de incidencias críticas",
+    description:
+      "Durante casi veinte años como jefe de recepción en la hostelería de alto nivel, ocupé una posición central en entornos de alta presión. Era responsable de resolver incidencias críticas, tanto técnicas como humanas u organizativas. Esta experiencia me ha dado reflejos sólidos: análisis rápido, priorización clara y decisiones eficaces bajo restricciones.",
+    icon: careerIcon,
+  },
+  {
+    title: "Transferencia de competencias al desarrollo",
+    description:
+      "El desarrollo web se impuso como una continuación natural de ese rol. Diseñar una aplicación significa estructurar un sistema, anticipar los puntos de ruptura y garantizar su fiabilidad a lo largo del tiempo. Es esencialmente lo que siempre he hecho, ahora con código en lugar de procedimientos.",
+    icon: aboutmeicon,
+  },
+  {
+    title: "Actitud de equipo e influencia técnica",
+    description:
+      "Durante mi formación en Wild Code School, asumí de forma natural un papel de apoyo técnico dentro del grupo. A menudo me piden que aclare un razonamiento, diagnostique un bug o proponga un enfoque más legible. Esta postura refleja mi capacidad para tomar perspectiva y facilitar el trabajo colectivo.",
+    icon: gantticon,
+  },
+  {
+    title: "Enfoque de arquitectura y decisiones",
+    description:
+      "Concibo soluciones que sean simples antes de hacerlas escalables. Evito el sobre‑ingeniería, limito las abstracciones prematuras y priorizo decisiones técnicas alineadas con las restricciones reales del proyecto y el nivel del equipo.",
+    icon: archiicon,
+  },
+  {
+    title: "Proyección profesional",
+    description:
+      "Actualmente busco una oportunidad — puesto junior, contrato de formación o prácticas — dentro de un equipo en el que pueda seguir creciendo técnicamente y asumir rápidamente responsabilidades transversales. Mi objetivo es implicarme en proyectos duraderos y aumentar mi impacto con el tiempo.",
+    icon: objectificon,
+  },
+],
 };
 
 
