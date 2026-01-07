@@ -19,7 +19,7 @@ import Imprint from "../../components/Imprint";
 import Privacy from "../../components/Privacy";
 import notionapiicon from "../../assets/icons/notionapiicon.jpg"
 import slackapiicon from "../../assets/icons/slackapiicon.png"
-import aboutmeicon from "../../assets/icons/aboutme.png"
+import aboutmeicon from "../../assets/icons/entrainement.png"
 import archiicon from "../../assets/icons/archi.png"
 import gantticon from "../../assets/icons/gantt.png"
 import hemangicon2 from "../../assets/img/kevin-ressegaire.png"
