@@ -100,7 +100,7 @@ export default function ThemeSwitch() {
       >
         <Link
           to={sideBarLeftSocials[2].link}
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           <BsFillEnvelopeAtFill />
